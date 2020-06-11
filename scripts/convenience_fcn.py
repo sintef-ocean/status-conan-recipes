@@ -25,7 +25,7 @@ def BadgeWorkFlow(reponame, compiler):
 
 
 def TableHeader():
-    return "# status-my-conan-recipes\n\nSoftware | Recipe | GCC | Clang | MSVC | Bintray\n---|---|---|---|---|---\n"
+    return "# Status for Conan recipes\n\nSoftware | Recipe | GCC | Clang | MSVC | Bintray\n---|---|---|---|---|---\n"
 
 
 def WriteRow(libname, homepage, repo, reponame, inTable):

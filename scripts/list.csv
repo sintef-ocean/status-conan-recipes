@@ -7,3 +7,4 @@ mathgl,http://mathgl.sourceforge.net,github,conan-mathgl,master,2.6.2,mathgl:sha
 mscl,https://github.com/LORD-MicroStrain/MSCL,github,conan-mscl,master,55.0.1,mscl:shared=False # by default
 ogre3d,https://www.ogre3d.org/,github,conan-ogre3d,master,1.12.5,
 tinyxml,http://www.grinninglizard.com/tinyxml,github,conan-tinyxml,master,2.4.2,
+qwt,https://qwt.sourceforge.io/,github,conan-qwt,master,6.1.5,
