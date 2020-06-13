@@ -87,3 +87,4 @@ def WriteStatusFile():
                 aLine = WriteRow(row['library'], row['homepage'], row['repo'],
                                  row['reponame'], True)
                 fil.write(aLine)
+            fil.write("\nAdd new row to table: See [scripts/README.md](scripts/README.md)")

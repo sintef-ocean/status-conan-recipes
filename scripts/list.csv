@@ -1,5 +1,6 @@
 library,homepage,repo,reponame,branch,version,opt_example
 clapack,http://www.netlib.org/clapack,github,conan-clapack,master,3.2.1,
+hdf5,https://portal.hdfgroup.org/display/HDF5/HDF5,github,conan-hdf5,master,1.8.21,
 libboard,https://github.com/c-koi/libboard,github,conan-libboard,master,0.9.4,
 libharu,http://libharu.org,github,conan-libharu,master,2.3.0,libharu:shared=False
 libmodbus,http://libmodbus.org,github,conan-libmodbus,master,3.1.4p1,libmodbus:shared=False
@@ -8,4 +9,3 @@ mscl,https://github.com/LORD-MicroStrain/MSCL,github,conan-mscl,master,55.0.1,ms
 ogre3d,https://www.ogre3d.org/,github,conan-ogre3d,master,1.12.5,
 tinyxml,http://www.grinninglizard.com/tinyxml,github,conan-tinyxml,master,2.4.2,
 qwt,https://qwt.sourceforge.io/,github,conan-qwt,master,6.1.5,
-hdf5,https://portal.hdfgroup.org/display/HDF5/HDF5,github,conan-hdf5,master,1.8.21,
