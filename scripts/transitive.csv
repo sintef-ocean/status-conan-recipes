@@ -1,0 +1,2 @@
+library,homepage,repo,reponame,version,bintray-user,opts
+qt,https://www.qt.io,github,bincrafters/conan-qt,5.15.0,bincrafters,[qtsvg=True]

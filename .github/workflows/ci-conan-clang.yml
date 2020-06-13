@@ -1,7 +1,10 @@
 name: Clang Conan
 
-# This workflow is triggered on pushes to the repository.
-on: [push]
+on:
+  push:
+    paths-ignore:
+    - 'scripts/**'
+    - 'README.md'
 
 env:
   CONAN_UPLOAD: "https://api.bintray.com/conan/sintef-ocean/conan"
@@ -38,7 +41,12 @@ jobs:
           conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
       - name: Conan create
         run: |
-          echo Nothing yet
+          conan install qt/5.15.0@bincrafters/stable \
+            -s build_type=${{ matrix.build_type }} \
+            -s compiler.version=${{ matrix.compiler_version }} \
+            -s compiler.libcxx=${{ matrix.compiler_libcxx }} \
+            -o qt:qtsvg=True \
+            -b missing
       - name: Conan upload
         run: |
-          echo Nothing yet
+          conan upload --all -c -r sintef qt/5.15.0 --retry 10 --retry-wait 20

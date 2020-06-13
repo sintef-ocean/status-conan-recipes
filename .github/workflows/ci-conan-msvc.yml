@@ -1,7 +1,10 @@
 name: MSVC Conan
 
-# This workflow is triggered on pushes to the repository.
-on: [push]
+on:
+  push:
+    paths-ignore:
+    - 'scripts/**'
+    - 'README.md'
 
 env:
   CONAN_UPLOAD: "https://api.bintray.com/conan/sintef-ocean/conan"

@@ -16,8 +16,17 @@ def RecipeLink(repo, reponame):
     return '[<img src="https://{0}/favicon.ico" height="28">](https://{0}/sintef-ocean/{1})'.format(s, reponame)
 
 
-def BadgeBintray(libname):
-    return "[![Download](https://api.bintray.com/packages/sintef-ocean/conan/{0}%3Asintef/images/download.svg)](https://bintray.com/sintef-ocean/conan/{0}%3Asintef/_latestVersion)".format(libname)
+def Repo3rdParty(repo, reponame):
+    if repo == "github":
+        s = "github.com"
+    else:
+        raise NameError("Unknown repo: {}".format(repo))
+
+    return '[<img src="https://{0}/favicon.ico" height="28">](https://{0}/{1})'.format(s, reponame)
+
+
+def BadgeBintray(libname, user='sintef'):
+    return "[![Download](https://api.bintray.com/packages/sintef-ocean/conan/{libname}%3A{user}/images/download.svg)](https://bintray.com/sintef-ocean/conan/{libname}%3A{user}/_latestVersion)".format(libname=libname, user=user)
 
 
 def BadgeWorkFlow(reponame, compiler):
@@ -27,6 +36,8 @@ def BadgeWorkFlow(reponame, compiler):
 def TableHeader():
     return "# Status for Conan recipes\n\nSoftware | Recipe | GCC | Clang | MSVC | Bintray\n---|---|---|---|---|---\n"
 
+def TransitiveHeader():
+    return "Software | Recipe | Bintray\n---|---|---\n"
 
 def WriteRow(libname, homepage, repo, reponame, inTable):
     if not inTable:
@@ -44,6 +55,11 @@ def WriteRow(libname, homepage, repo, reponame, inTable):
             BadgeWorkFlow(reponame, 'MSVC'),
             BadgeBintray(libname))
 
+def WriteTransitiveRow(libname, homepage, repo, reponame, user):
+    return "{}|{}|{}".format(
+        SoftwareLink(libname, homepage),
+        Repo3rdParty(repo, reponame),
+        BadgeBintray(libname, user))
 
 def GetStatusFor(library):
     with open('list.csv', 'rt') as csvfile:
@@ -87,4 +103,12 @@ def WriteStatusFile():
                 aLine = WriteRow(row['library'], row['homepage'], row['repo'],
                                  row['reponame'], True)
                 fil.write(aLine)
-            fil.write("\nAdd new row to table: See [scripts/README.md](scripts/README.md)")
+        fil.write("\n----\n")
+        fil.write(TransitiveHeader())
+        with open('transitive.csv', 'rt') as csvfile:
+            reader = csv.DictReader(csvfile, delimiter=',')
+            for row in reader:
+                aLine = WriteTransitiveRow(row['library'], row['homepage'], row['repo'],
+                                 row['reponame'], row['bintray-user'])
+                fil.write(aLine)
+            fil.write("\n\nAdd new row to table: See [scripts/README.md](scripts/README.md)")
