@@ -56,6 +56,7 @@ jobs:
       - name: Conan install
         run: |
           conan install qt/5.15.0@bincrafters/stable \
+            -s build_type=${{ matrix.build_type }} \
             -s compiler.version=${{ matrix.compiler_version }} \
             -s compiler.libcxx=${{ matrix.compiler_libcxx }} \
             -o qt:qtsvg=True \
