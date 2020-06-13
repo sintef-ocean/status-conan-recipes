@@ -1,0 +1,43 @@
+name: MSVC Conan
+
+# This workflow is triggered on pushes to the repository.
+on: [push]
+
+env:
+  CONAN_UPLOAD: "https://api.bintray.com/conan/sintef-ocean/conan"
+  CONAN_PASSWORD_SINTEF: ${{ secrets.BINTRAY_API_KEY }}
+  CONAN_LOGIN_USERNAME_SINTEF: ${{ secrets.BINTRAY_USER }}
+  CONAN_NON_INTERACTIVE: True
+  CONAN_USE_ALWAYS_SHORT_PATHS: True
+
+jobs:
+  conan-with-msvc:
+    name: Conan
+    runs-on: ${{ matrix.os }}
+    env:
+      CONAN_USER_HOME_SHORT: C:\c
+      CONAN_USE_ALWAYS_SHORT_PATHS: 1
+    strategy:
+      fail-fast: false
+      matrix:
+        compiler_toolset: [v141, v142]
+        build_type: [Debug, Release]
+        compiler_version: [16]
+        os: [windows-2019]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install prerequisites
+        run: |
+          pip3 install --upgrade setuptools pip
+          pip3 install conan requests
+          pip3 install conan_package_tools
+      - name: Configure Conan
+        run: |
+          conan remote add sintef ${env:CONAN_UPLOAD} --insert 0
+          conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
+      - name: Conan create
+        run: |
+          echo Nothing yet
+      - name: Conan upload
+        run: |
+          echo Nothing yet

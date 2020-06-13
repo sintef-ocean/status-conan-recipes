@@ -1,0 +1,44 @@
+name: Clang Conan
+
+# This workflow is triggered on pushes to the repository.
+on: [push]
+
+env:
+  CONAN_UPLOAD: "https://api.bintray.com/conan/sintef-ocean/conan"
+  CONAN_PASSWORD_SINTEF: ${{ secrets.BINTRAY_API_KEY }}
+  CONAN_LOGIN_USERNAME_SINTEF: ${{ secrets.BINTRAY_USER }}
+  CONAN_NON_INTERACTIVE: True
+  CONAN_USE_ALWAYS_SHORT_PATHS: True
+
+jobs:
+  conan-with-clang:
+    name: Conan
+    runs-on: ${{ matrix.os }}
+    env:
+      CC: clang-${{ matrix.compiler_version }}
+      CXX: clang++-${{ matrix.compiler_version }}
+    strategy:
+      fail-fast: false
+      matrix:
+        compiler_version: [8, 9, 10]
+        build_type: [Debug, Release]
+        compiler_libcxx: [libstdc++11]
+        os: [ubuntu-20.04]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install prerequisites
+        run: |
+          sudo pip3 install --upgrade setuptools pip
+          sudo pip3 install conan requests
+          sudo pip3 install conan_package_tools
+          sudo apt-get install clang-tools-10
+      - name: Configure Conan
+        run: |
+          conan remote add sintef ${CONAN_UPLOAD} --insert 0
+          conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
+      - name: Conan create
+        run: |
+          echo Nothing yet
+      - name: Conan upload
+        run: |
+          echo Nothing yet
