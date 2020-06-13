@@ -62,5 +62,4 @@ jobs:
             -b missing
       - name: Conan upload
         run: |
-          conan copy --all qt/5.15.0@bincrafters/stable sintef/stable
-          conan upload --all -c -r sintef qt* --retry 5 --retry-wait 20
+          conan upload --all -c -r sintef qt/5.15.0 --retry 5 --retry-wait 20
