@@ -1,4 +1,4 @@
-# Status for Conan recipes
+# Status for own Conan recipes
 
 Software | Recipe | GCC | Clang | MSVC | Bintray
 ---|---|---|---|---|---
@@ -14,6 +14,8 @@ Software | Recipe | GCC | Clang | MSVC | Bintray
 [qwt](https://qwt.sourceforge.io/)|[<img src="https://github.com/favicon.ico" height="28">](https://github.com/sintef-ocean/conan-qwt)|[![GCC Conan](https://github.com/sintef-ocean/conan-qwt/workflows/GCC%20Conan/badge.svg)](https://github.com/sintef-ocean/conan-qwt/actions?query=workflow%3A"GCC+Conan")|[![Clang Conan](https://github.com/sintef-ocean/conan-qwt/workflows/Clang%20Conan/badge.svg)](https://github.com/sintef-ocean/conan-qwt/actions?query=workflow%3A"Clang+Conan")|[![MSVC Conan](https://github.com/sintef-ocean/conan-qwt/workflows/MSVC%20Conan/badge.svg)](https://github.com/sintef-ocean/conan-qwt/actions?query=workflow%3A"MSVC+Conan")|[![Download](https://api.bintray.com/packages/sintef-ocean/conan/qwt%3Asintef/images/download.svg)](https://bintray.com/sintef-ocean/conan/qwt%3Asintef/_latestVersion)
 
 ----
+## Status for 3rd-party Conan recipes
+
 Software | Recipe | Bintray
 ---|---|---
 [qt](https://www.qt.io)|[<img src="https://github.com/favicon.ico" height="28">](https://github.com/bincrafters/conan-qt)|[![Download](https://api.bintray.com/packages/sintef-ocean/conan/qt%3Abincrafters/images/download.svg)](https://bintray.com/sintef-ocean/conan/qt%3Abincrafters/_latestVersion)

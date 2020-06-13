@@ -58,12 +58,13 @@ jobs:
           conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
       - name: Conan install
         run: |
+          if [ "${{ matrix.build_type }}" == "Debug" ]; then export extra="--build qt/5.15.0"; fi
           conan install qt/5.15.0@bincrafters/stable \
             -s build_type=${{ matrix.build_type }} \
             -s compiler.version=${{ matrix.compiler_version }} \
             -s compiler.libcxx=${{ matrix.compiler_libcxx }} \
             -o qt:qtsvg=True \
-            -b missing
+            --build missing ${extra}
       - name: Conan upload
         run: |
           conan upload --all -c -r sintef qt/5.15.0 --retry 10 --retry-wait 20

@@ -34,10 +34,10 @@ def BadgeWorkFlow(reponame, compiler):
 
 
 def TableHeader():
-    return "# Status for Conan recipes\n\nSoftware | Recipe | GCC | Clang | MSVC | Bintray\n---|---|---|---|---|---\n"
+    return "# Status for own Conan recipes\n\nSoftware | Recipe | GCC | Clang | MSVC | Bintray\n---|---|---|---|---|---\n"
 
 def TransitiveHeader():
-    return "Software | Recipe | Bintray\n---|---|---\n"
+    return "## Status for 3rd-party Conan recipes\n\nSoftware | Recipe | Bintray\n---|---|---\n"
 
 def WriteRow(libname, homepage, repo, reponame, inTable):
     if not inTable:
