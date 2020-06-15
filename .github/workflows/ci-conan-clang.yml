@@ -25,7 +25,6 @@ jobs:
       matrix:
         compiler_version: [8, 9, 10]
         build_type: [Debug, Release]
-        compiler_libcxx: [libstdc++11]
         os: [ubuntu-20.04]
     steps:
       - uses: actions/checkout@v2
@@ -44,7 +43,7 @@ jobs:
           conan install qt/5.15.0@bincrafters/stable \
             -s build_type=${{ matrix.build_type }} \
             -s compiler.version=${{ matrix.compiler_version }} \
-            -s compiler.libcxx=${{ matrix.compiler_libcxx }} \
+            -s compiler.libcxx=libstdc++11 \
             -o qt:qtsvg=True \
             -b missing
       - name: Conan upload

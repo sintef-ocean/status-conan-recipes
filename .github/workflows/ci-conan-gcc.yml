@@ -25,21 +25,16 @@ jobs:
       matrix:
         compiler_version: [6, 7, 8, 9]
         build_type: [Debug, Release]
-        compiler_libcxx: [libstdc++, libstdc++11]
         os: [ubuntu-18.04, ubuntu-20.04]
         exclude:
           - os: ubuntu-20.04
             compiler_version: 6
-          - os: ubuntu-20.04
-            compiler_libcxx: libstdc++
           - os: ubuntu-18.04
             compiler_version: 7
           - os: ubuntu-18.04
             compiler_version: 8
           - os: ubuntu-18.04
             compiler_version: 9
-          - os: ubuntu-18.04
-            compiler_libcxx: libstdc++11
     steps:
       - uses: actions/checkout@v2
       - name: Install prerequisites
@@ -58,13 +53,12 @@ jobs:
           conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
       - name: Conan install
         run: |
-          if [ "${{ matrix.build_type }}" == "Debug" ]; then export extra="--build qt/5.15.0*"; fi
           conan install qt/5.15.0@bincrafters/stable \
             -s build_type=${{ matrix.build_type }} \
             -s compiler.version=${{ matrix.compiler_version }} \
-            -s compiler.libcxx=${{ matrix.compiler_libcxx }} \
+            -s compiler.libcxx=libstdc++11 \
             -o qt:qtsvg=True \
-            --build missing ${extra}
+            --build missing
       - name: Conan upload
         run: |
           conan upload --all -c -r sintef qt/5.15.0 --retry 10 --retry-wait 20
