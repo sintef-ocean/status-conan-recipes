@@ -8,6 +8,6 @@ recipe status page. Ensure that [list.csv](list.csv) for own recipes and
 
 -   **Status page:** run `python make_status.py`. The output will be `Out.md`, which you
     will need to replace the existing README.md in the root folder.
--   **Recipe readme:** run `python lib_readme.py <library>`, where `<library>` is from the
-    first column of <list.csv>, or `ALL`. The output will be
-    `Readme_<library>.md`. Copy and adjust accordingly, especially the bottom sections.
+-   **Recipe readme:** run `python lib_readme.py [library]`, where `[library]` is from the
+    first column of [list.csv](list.csv), or `ALL`. The output will be
+    `Readme_[library].md`. Copy and adjust accordingly, especially the bottom sections.

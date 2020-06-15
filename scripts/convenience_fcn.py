@@ -36,8 +36,10 @@ def BadgeWorkFlow(reponame, compiler):
 def TableHeader():
     return "# Status for own Conan recipes\n\nSoftware | Recipe | GCC | Clang | MSVC | Bintray\n---|---|---|---|---|---\n"
 
+
 def TransitiveHeader():
     return "## Status for 3rd-party Conan recipes\n\nSoftware | Recipe | Bintray\n---|---|---\n"
+
 
 def WriteRow(libname, homepage, repo, reponame, inTable):
     if not inTable:
@@ -97,6 +99,7 @@ def WriteLibReadme(libname, homepage, repo, reponame, version, opt_ex):
 def WriteStatusFile():
     with open('Out.md', 'w') as fil:
         fil.write(TableHeader())
+
         with open('list.csv', 'rt') as csvfile:
             reader = csv.DictReader(csvfile, delimiter=',')
             for row in reader:
@@ -105,10 +108,17 @@ def WriteStatusFile():
                 fil.write(aLine)
         fil.write("\n----\n")
         fil.write(TransitiveHeader())
+
         with open('transitive.csv', 'rt') as csvfile:
             reader = csv.DictReader(csvfile, delimiter=',')
             for row in reader:
                 aLine = WriteTransitiveRow(row['library'], row['homepage'], row['repo'],
                                  row['reponame'], row['bintray-user'])
                 fil.write(aLine)
-            fil.write("\n\nAdd new row to table: See [scripts/README.md](scripts/README.md)")
+            fil.write("\n\nAdd new row to table: See [scripts/README.md](scripts/README.md)\n")
+        fil.write("\n----\n")
+
+        fil.write("## Build matrix configuration for recipes\n")
+        with open('BuildMatrix.md', 'rt') as footer:
+            data = footer.read()
+            fil.write(data)

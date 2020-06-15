@@ -21,3 +21,16 @@ Software | Recipe | Bintray
 [qt](https://www.qt.io)|[<img src="https://github.com/favicon.ico" height="28">](https://github.com/bincrafters/conan-qt)|[![Download](https://api.bintray.com/packages/sintef-ocean/conan/qt%3Abincrafters/images/download.svg)](https://bintray.com/sintef-ocean/conan/qt%3Abincrafters/_latestVersion)
 
 Add new row to table: See [scripts/README.md](scripts/README.md)
+
+----
+## Build matrix configuration for recipes
+We build for three compilers, GCC, Clang, and MSVC. Below is the configuration for each
+compiler. Take a look at the yaml files in `.github/workflows` for one of the recipes to
+see how a build matrix is constructed.
+
+| Compiler | Versions       | libcxx      | os           |
+| -------- | -------------- | ----------- | ------------ |
+| Clang    | 8, 9, 10       | libstdc++11 | ubuntu-20.04 |
+| GCC      | 6              | libstdc++   | ubuntu-18.04 |
+| GCC      | 7, 8, 9        | libstdc++11 | ubuntu-20.04 |
+| MSVC     | 16: v141, v142 | \-          | windows-2019 |
