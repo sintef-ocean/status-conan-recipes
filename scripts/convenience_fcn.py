@@ -58,7 +58,7 @@ def WriteRow(libname, homepage, repo, reponame, inTable):
             BadgeBintray(libname))
 
 def WriteTransitiveRow(libname, homepage, repo, reponame, user):
-    return "{}|{}|{}".format(
+    return "{}|{}|{}\n".format(
         SoftwareLink(libname, homepage),
         Repo3rdParty(repo, reponame),
         BadgeBintray(libname, user))
