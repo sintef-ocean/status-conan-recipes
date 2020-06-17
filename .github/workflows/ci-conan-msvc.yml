@@ -14,7 +14,7 @@ env:
   CONAN_USE_ALWAYS_SHORT_PATHS: True
   SINTEF_PKG: yaml-cpp/0.6.3
   SINTEF_CHANNEL:
-  # "@bincrafters/stable"
+  # "bincrafters/stable"
   # qt/5.15.0@bincrafters/stable
   SINTEF_OPTS:
   # -o qt:qtsvg=True
@@ -46,7 +46,7 @@ jobs:
           conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
       - name: Conan install
         run: |
-          conan install ${env:SINTEF_PKG}${env:SINTEF_CHANNEL} `
+          conan install ${env:SINTEF_PKG}@${env:SINTEF_CHANNEL} `
             -s build_type=${{ matrix.build_type }} `
             -s compiler.version=${{ matrix.compiler_version }} `
             -s compiler.toolset=${{ matrix.compiler_toolset }} `
