@@ -12,6 +12,12 @@ env:
   CONAN_LOGIN_USERNAME_SINTEF: ${{ secrets.BINTRAY_USER }}
   CONAN_NON_INTERACTIVE: True
   CONAN_USE_ALWAYS_SHORT_PATHS: True
+  SINTEF_PKG: yaml-cpp/0.6.3
+  SINTEF_CHANNEL:
+  # "@bincrafters/stable"
+  # qt/5.15.0@bincrafters/stable
+  SINTEF_OPTS:
+  # -o qt:qtsvg=True
 
 jobs:
   conan-with-msvc:
@@ -40,12 +46,11 @@ jobs:
           conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
       - name: Conan install
         run: |
-          conan install qt/5.15.0@bincrafters/stable `
+          conan install ${env:SINTEF_PKG}${env:SINTEF_CHANNEL} `
             -s build_type=${{ matrix.build_type }} `
             -s compiler.version=${{ matrix.compiler_version }} `
             -s compiler.toolset=${{ matrix.compiler_toolset }} `
-            -o qt:qtsvg=True `
-            -b missing
+            -b missing ${SINTEF_OPTS}
       - name: Conan upload
         run: |
-          conan upload --all -c -r sintef qt/5.15.0 --retry 10 --retry-wait 20
+          conan upload --all -c -r sintef ${env:SINTEF_PKG} --retry 10 --retry-wait 20

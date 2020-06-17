@@ -14,6 +14,9 @@ Software | Recipe | GCC | Clang | MSVC | Bintray
 [tinyxml](http://www.grinninglizard.com/tinyxml)|[<img src="https://github.com/favicon.ico" height="28">](https://github.com/sintef-ocean/conan-tinyxml)|[![GCC Conan](https://github.com/sintef-ocean/conan-tinyxml/workflows/GCC%20Conan/badge.svg)](https://github.com/sintef-ocean/conan-tinyxml/actions?query=workflow%3A"GCC+Conan")|[![Clang Conan](https://github.com/sintef-ocean/conan-tinyxml/workflows/Clang%20Conan/badge.svg)](https://github.com/sintef-ocean/conan-tinyxml/actions?query=workflow%3A"Clang+Conan")|[![MSVC Conan](https://github.com/sintef-ocean/conan-tinyxml/workflows/MSVC%20Conan/badge.svg)](https://github.com/sintef-ocean/conan-tinyxml/actions?query=workflow%3A"MSVC+Conan")|[![Download](https://api.bintray.com/packages/sintef-ocean/conan/tinyxml%3Asintef/images/download.svg)](https://bintray.com/sintef-ocean/conan/tinyxml%3Asintef/_latestVersion)
 [qwt](https://qwt.sourceforge.io/)|[<img src="https://github.com/favicon.ico" height="28">](https://github.com/sintef-ocean/conan-qwt)|[![GCC Conan](https://github.com/sintef-ocean/conan-qwt/workflows/GCC%20Conan/badge.svg)](https://github.com/sintef-ocean/conan-qwt/actions?query=workflow%3A"GCC+Conan")|[![Clang Conan](https://github.com/sintef-ocean/conan-qwt/workflows/Clang%20Conan/badge.svg)](https://github.com/sintef-ocean/conan-qwt/actions?query=workflow%3A"Clang+Conan")|[![MSVC Conan](https://github.com/sintef-ocean/conan-qwt/workflows/MSVC%20Conan/badge.svg)](https://github.com/sintef-ocean/conan-qwt/actions?query=workflow%3A"MSVC+Conan")|[![Download](https://api.bintray.com/packages/sintef-ocean/conan/qwt%3Asintef/images/download.svg)](https://bintray.com/sintef-ocean/conan/qwt%3Asintef/_latestVersion)
 
+To setup this remote:
+`conan remote add [REMOTE] https://api.bintray.com/conan/sintef-ocean/conan`
+
 ----
 ## Status for 3rd-party Conan recipes
 

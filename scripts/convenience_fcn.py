@@ -106,6 +106,8 @@ def WriteStatusFile():
                 aLine = WriteRow(row['library'], row['homepage'], row['repo'],
                                  row['reponame'], True)
                 fil.write(aLine)
+        fil.write("\nTo setup this remote:\n")
+        fil.write("`conan remote add [REMOTE] https://api.bintray.com/conan/sintef-ocean/conan`\n")
         fil.write("\n----\n")
         fil.write(TransitiveHeader())
 
