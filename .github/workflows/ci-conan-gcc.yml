@@ -31,16 +31,24 @@ jobs:
       matrix:
         compiler_version: [6, 7, 8, 9]
         build_type: [Debug, Release]
-        os: [ubuntu-18.04, ubuntu-20.04]
+        os: [ubuntu-16.04, ubuntu-18.04, ubuntu-20.04]
         exclude:
-          - os: ubuntu-20.04
+          - os: ubuntu-16.04
+            compiler_version: 7
+          - os: ubuntu-16.04
+            compiler_version: 8
+          - os: ubuntu-16.04
+            compiler_version: 9
+          - os: ubuntu-18.04
             compiler_version: 6
           - os: ubuntu-18.04
-            compiler_version: 7
-          - os: ubuntu-18.04
-            compiler_version: 8
-          - os: ubuntu-18.04
             compiler_version: 9
+          - os: ubuntu-20.04
+            compiler_version: 6
+          - os: ubuntu-20.04
+            compiler_version: 7
+          - os: ubuntu-20.04
+            compiler_version: 8
     steps:
       - uses: actions/checkout@v2
       - name: Install prerequisites
@@ -63,7 +71,7 @@ jobs:
             -s build_type=${{ matrix.build_type }} \
             -s compiler.version=${{ matrix.compiler_version }} \
             -s compiler.libcxx=libstdc++11 \
-            --build missing ${SINTEF_OPTS}
+            --build missing -b outdated ${SINTEF_OPTS}
       - name: Conan upload
         run: |
           conan upload --all -c -r sintef ${SINTEF_PKG} --retry 10 --retry-wait 20

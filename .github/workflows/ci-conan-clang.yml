@@ -50,7 +50,7 @@ jobs:
             -s build_type=${{ matrix.build_type }} \
             -s compiler.version=${{ matrix.compiler_version }} \
             -s compiler.libcxx=libstdc++11 \
-            -b missing ${SINTEF_OPTS}
+            -b missing -b outdated ${SINTEF_OPTS}
       - name: Conan upload
         run: |
           conan upload --all -c -r sintef ${SINTEF_PKG} --retry 10 --retry-wait 20
