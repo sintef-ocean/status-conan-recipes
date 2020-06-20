@@ -58,6 +58,7 @@ jobs:
               sudo apt-get update
               sudo apt-get install gcc-6 g++-6 -y
           fi
+          sudo apt-get install libgl1-mesa-dev
       - name: Configure Conan
         run: |
           conan remote add sintef ${CONAN_UPLOAD} --insert 0
