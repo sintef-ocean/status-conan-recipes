@@ -12,12 +12,9 @@ env:
   CONAN_LOGIN_USERNAME_SINTEF: ${{ secrets.BINTRAY_USER }}
   CONAN_NON_INTERACTIVE: True
   CONAN_USE_ALWAYS_SHORT_PATHS: True
-  SINTEF_PKG: yaml-cpp/0.6.3
-  SINTEF_CHANNEL:
-  # "bincrafters/stable"
-  # qt/5.15.0@bincrafters/stable
-  SINTEF_OPTS:
-  # -o qt:qtsvg=True
+  SINTEF_PKG: qt/5.15.0
+  SINTEF_CHANNEL: bincrafters/stable
+  SINTEF_OPTS: -o qt:qtsvg=True
 
 jobs:
   conan-with-clang:
