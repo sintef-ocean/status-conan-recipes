@@ -6,6 +6,7 @@ libharu,http://libharu.org,github,conan-libharu,master,2.3.0,libharu:shared=Fals
 libmodbus,http://libmodbus.org,github,conan-libmodbus,master,3.1.4p1,libmodbus:shared=False
 mathgl,http://mathgl.sourceforge.net,github,conan-mathgl,master,2.4.4,mathgl:shared=False
 mscl,https://github.com/LORD-MicroStrain/MSCL,github,conan-mscl,master,55.0.1,mscl:shared=False # by default
+muparser,https://beltoforion.de/en/muparser/,github,conan-muparser,master,2.3.2,
 netcdf,https://github.com/Unidata/netcdf-c.git,github,conan-netcdf-c,master,4.3.2,
 ogre3d,https://www.ogre3d.org/,github,conan-ogre3d,master,1.12.5,
 opensplice-ce,https://github.com/ADLINK-IST/opensplice,github,conan-opensplice-ce,master,6.9.190925
