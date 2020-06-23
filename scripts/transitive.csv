@@ -1,3 +1,1 @@
 library,homepage,repo,reponame,version,bintray-user,opts
-qt,https://www.qt.io,github,bincrafters/conan-qt,5.15.0,bincrafters,[qtsvg=True]
-yaml-cpp,https://github.com/jbeder/yaml-cpp,github,conan-io/conan-center-index,0.6.3,_,

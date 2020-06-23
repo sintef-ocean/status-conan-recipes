@@ -24,8 +24,6 @@ To setup this remote:
 
 Software | Recipe | Bintray
 ---|---|---
-[qt](https://www.qt.io)|[<img src="https://github.com/favicon.ico" height="28">](https://github.com/bincrafters/conan-qt)|[![Download](https://api.bintray.com/packages/sintef-ocean/conan/qt%3Abincrafters/images/download.svg)](https://bintray.com/sintef-ocean/conan/qt%3Abincrafters/_latestVersion)
-[yaml-cpp](https://github.com/jbeder/yaml-cpp)|[<img src="https://github.com/favicon.ico" height="28">](https://github.com/conan-io/conan-center-index)|[![Download](https://api.bintray.com/packages/sintef-ocean/conan/yaml-cpp%3A_/images/download.svg)](https://bintray.com/sintef-ocean/conan/yaml-cpp%3A_/_latestVersion)
 
 
 Add new row to table: See [scripts/README.md](scripts/README.md)
@@ -43,8 +41,7 @@ see how a build matrix is constructed.
 | GCC      | 7, 8           | ubuntu-18.04 | 2.27       |
 | GCC      | 9              | ubuntu-20.04 | 2.31       |
 | MSVC     | 16: v141, v142 | windows-2019 | -          |
-|----------|----------------|--------------|------------|
-|          |                | ubuntu-20.04 | 2.31       |
+| -        | -              | ubuntu-20.04 | 2.31       |
 
 | Debian   | glibc   |
 |----------|---------|

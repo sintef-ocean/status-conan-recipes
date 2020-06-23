@@ -9,8 +9,7 @@ see how a build matrix is constructed.
 | GCC      | 7, 8           | ubuntu-18.04 | 2.27       |
 | GCC      | 9              | ubuntu-20.04 | 2.31       |
 | MSVC     | 16: v141, v142 | windows-2019 | -          |
-|----------|----------------|--------------|------------|
-|          |                | ubuntu-20.04 | 2.31       |
+| -        | -              | ubuntu-20.04 | 2.31       |
 
 | Debian   | glibc   |
 |----------|---------|
