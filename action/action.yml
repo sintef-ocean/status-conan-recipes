@@ -1,0 +1,15 @@
+name: "Test clang 10"
+description: "Builder 10"
+inputs:
+  an-input-ID:
+    description: 'parameter to propagate'
+    required: true
+    default: "Empty"
+outputs:
+  time:
+    description: "Dockertime"
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.an-input-ID }}

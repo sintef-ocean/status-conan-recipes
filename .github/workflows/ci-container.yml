@@ -1,0 +1,43 @@
+name: CI in containers
+
+# This workflow is triggered on pushes to the repository.
+on: [push]
+
+env:
+  CONAN_USE_ALWAYS_SHORT_PATHS: True
+
+jobs:
+
+  docker-test:
+    name: Donald Duck own action
+    runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Docker clang 10
+        uses: ./action/
+        id: hello10
+        with:
+          an-input-ID: Joakim 10th
+      - name: docker output of clang 10
+        run: echo "The time was ${{ steps.hello10.outputs.time }}"
+  container-test:
+    name: Scrooge McDuck dockerhub
+    runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: false
+      matrix:
+        compiler: [gcc, clang]
+        compiler_version: [9, 10]
+    container:
+      image: conanio/${{ matrix.compiler }}${{ matrix.compiler_version }}
+      options: -u 0
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Do something in the container ${{ matrix.compiler }} ${{ matrix.compiler_version }}
+        run: |
+          clang++ -v | echo no clang
+          g++ -v | echo no gcc
