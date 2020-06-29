@@ -3,8 +3,6 @@ compiler. Take a look at the yaml files in `.github/workflows` for one of the re
 see how a build matrix is constructed. We currently build all linux artifacts using docker
 images from [conan-io](https://github.com/conan-io/conan-docker-tools) on ubuntu-20.04
 
-
-
 | Compiler | Versions       | container/os    | glibc ver. |
 | -------- | -------------- | ------------    | ---------- |
 | Clang    | 8              | conanio/clang8  | 2.29       |
@@ -13,7 +11,7 @@ images from [conan-io](https://github.com/conan-io/conan-docker-tools) on ubuntu
 | GCC      | 6              | conanio/gcc63   | 2.24       |
 | GCC      | 7              | conanio/gcc7    | 2.26       |
 | GCC      | 8              | conanio/gcc8    | 2.27       |
-| GCC      | 9              | ubuntu-20.04    | 2.30       |
+| GCC      | 9              | conanio/gcc9    | 2.30       |
 | MSVC     | 16: v141, v142 | windows-2019    | -          |
 
 | OS           | glibc   |
@@ -25,5 +23,5 @@ images from [conan-io](https://github.com/conan-io/conan-docker-tools) on ubuntu
 | Ubuntu 18.04 | 2.27    |
 | Ubuntu 20.04 | 2.31    |
 
-**Note** qwt with clang 8 and 9 are currently built with ubuntu-20.04 due to transitive
-dependencies using glibc 2.28.
+**Note** OpenSplice are currently built using debian:bullseye for clang due to issues
+when using conanio/clangX images.
