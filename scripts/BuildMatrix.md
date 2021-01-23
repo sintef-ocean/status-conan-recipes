@@ -14,14 +14,15 @@ images from [conan-io](https://github.com/conan-io/conan-docker-tools) on ubuntu
 | GCC      | 9              | conanio/gcc9    | 2.30       |
 | MSVC     | 16: v141, v142 | windows-2019    | -          |
 
-| OS           | glibc   |
-|--------------|---------|
-| Stretch      | 2.24    |
-| Buster       | 2.28    |
-| Bullseye     | 2.30(?) |
-| Ubuntu 16.04 | 2.23    |
-| Ubuntu 18.04 | 2.27    |
-| Ubuntu 20.04 | 2.31    |
+| OS           | glibc |
+|--------------|-------|
+| Stretch      | 2.24  |
+| Buster       | 2.28  |
+| Bullseye     | 2.31  |
+| Ubuntu 16.04 | 2.23  |
+| Ubuntu 18.04 | 2.27  |
+| Ubuntu 20.04 | 2.31  |
 
-**Note** OpenSplice are currently built using debian:bullseye for clang due to issues
-when using conanio/clangX images.
+Find glibc version: `ldd --version`
+
+**Note** Not all packages are built with all configurations stated above.
