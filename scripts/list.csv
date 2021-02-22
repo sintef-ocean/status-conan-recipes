@@ -19,4 +19,4 @@ coinhsl,http://www.hsl.rl.ac.uk/ipopt/,github,conan-coinhsl,main,2014.01.17,
 coinglpk,https://www.gnu.org/software/glpk,github,conan-coinglpk,main,4.65
 coinmumps,http://mumps.enseeiht.fr,github,conan-coinmumps,main,4.10.0
 ipopt,https://github.com/coin-or/ipopt,github,conan-ipopt,main,3.13.3
-casadi,https://web.casadi.org/,github,conan-casadi,main,3.5.5
+casadi,https://web.casadi.org/,github,conan-casadi,master,3.5.5
