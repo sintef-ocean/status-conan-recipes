@@ -2,7 +2,6 @@
 
 [Conan.io](https://conan.io) recipe for [{1}]({2}).
 
-The recipe generates library packages, which can be found at [Bintray](https://bintray.com/sintef-ocean/conan/{1}%3Asintef).
 The package is usually consumed using the `conan install` command or a *conanfile.txt*.
 
 ## How to use this package
@@ -10,7 +9,7 @@ The package is usually consumed using the `conan install` command or a *conanfil
 1. Add remote to conan's package [remotes](https://docs.conan.io/en/latest/reference/commands/misc/remote.html?highlight=remotes):
 
    ```bash
-   $ conan remote add sintef https://api.bintray.com/conan/sintef-ocean/conan
+   $ conan remote add sintef https://conan.sintef.io/public
    ```
 
 2. Using *conanfile.txt* in your project with *cmake*

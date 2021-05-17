@@ -25,43 +25,38 @@ def Repo3rdParty(repo, reponame):
     return '[<img src="https://{0}/favicon.ico" height="28">](https://{0}/{1})'.format(s, reponame)
 
 
-def BadgeBintray(libname, user='sintef'):
-    return "[![Download](https://api.bintray.com/packages/sintef-ocean/conan/{libname}%3A{user}/images/download.svg)](https://bintray.com/sintef-ocean/conan/{libname}%3A{user}/_latestVersion)".format(libname=libname, user=user)
-
-
 def BadgeWorkFlow(reponame, compiler):
     return '[![{1} Conan](https://github.com/sintef-ocean/{0}/workflows/{1}%20Conan/badge.svg)](https://github.com/sintef-ocean/{0}/actions?query=workflow%3A"{1}+Conan")'.format(reponame, compiler)
 
 
 def TableHeader():
-    return "# Status for own Conan recipes\n\nSoftware | Recipe | GCC | Clang | MSVC | Bintray\n---|---|---|---|---|---\n"
+    return "# Status for own Conan recipes\n\nSoftware | Recipe | GCC | Clang | MSVC\n---|---|---|---|---\n"
 
 
 def TransitiveHeader():
-    return "## Status for 3rd-party Conan recipes\n\nSoftware | Recipe | Bintray\n---|---|---\n"
+    return "## Status for 3rd-party Conan recipes\n\nSoftware | Recipe\n---|---\n"
 
 
 def WriteRow(libname, homepage, repo, reponame, inTable):
     if not inTable:
-        return "{}\n{}\n{}\n{}\n".format(
+        return "{}\n{}\n{}\n".format(
             BadgeWorkFlow(reponame, 'GCC'),
             BadgeWorkFlow(reponame, 'Clang'),
-            BadgeWorkFlow(reponame, 'MSVC'),
-            BadgeBintray(libname))
+            BadgeWorkFlow(reponame, 'MSVC'))
     else:
-        return "{}|{}|{}|{}|{}|{}\n".format(
+        return "{}|{}|{}|{}|{}\n".format(
             SoftwareLink(libname, homepage),
             RecipeLink(repo, reponame),
             BadgeWorkFlow(reponame, 'GCC'),
             BadgeWorkFlow(reponame, 'Clang'),
-            BadgeWorkFlow(reponame, 'MSVC'),
-            BadgeBintray(libname))
+            BadgeWorkFlow(reponame, 'MSVC'))
 
-def WriteTransitiveRow(libname, homepage, repo, reponame, user):
-    return "{}|{}|{}\n".format(
+
+def WriteTransitiveRow(libname, homepage, repo, reponame):
+    return "{}|{}\n".format(
         SoftwareLink(libname, homepage),
-        Repo3rdParty(repo, reponame),
-        BadgeBintray(libname, user))
+        Repo3rdParty(repo, reponame))
+
 
 def GetStatusFor(library):
     with open('list.csv', 'rt') as csvfile:
@@ -107,15 +102,14 @@ def WriteStatusFile():
                                  row['reponame'], True)
                 fil.write(aLine)
         fil.write("\nTo setup this remote:\n")
-        fil.write("`conan remote add [REMOTE] https://api.bintray.com/conan/sintef-ocean/conan`\n")
+        fil.write("`conan remote add [REMOTE] https://conan.sintef.io/public`\n")
         fil.write("\n----\n")
         fil.write(TransitiveHeader())
 
         with open('transitive.csv', 'rt') as csvfile:
             reader = csv.DictReader(csvfile, delimiter=',')
             for row in reader:
-                aLine = WriteTransitiveRow(row['library'], row['homepage'], row['repo'],
-                                 row['reponame'], row['bintray-user'])
+                aLine = WriteTransitiveRow(row['library'], row['homepage'], row['repo'], row['reponame'])
                 fil.write(aLine)
             fil.write("\n\nAdd new row to table: See [scripts/README.md](scripts/README.md)\n")
         fil.write("\n----\n")

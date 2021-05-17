@@ -1,22 +1,17 @@
 library,homepage,repo,reponame,branch,version,opt_example
 clapack,http://www.netlib.org/clapack,github,conan-clapack,master,3.2.1,
 gnuplot-iostream,https://github.com/dstahlke/gnuplot-iostream,github,conan-gnuplot-iostream,main,2020.06.20,
-hdf5,https://portal.hdfgroup.org/display/HDF5/HDF5,github,conan-hdf5,master,1.8.21,
 libboard,https://github.com/c-koi/libboard,github,conan-libboard,master,0.9.4,
-libharu,http://libharu.org,github,conan-libharu,master,2.3.0,libharu:shared=False
-libmodbus,http://libmodbus.org,github,conan-libmodbus,master,3.1.4p1,libmodbus:shared=False
 mathgl,http://mathgl.sourceforge.net,github,conan-mathgl,master,2.4.4,mathgl:shared=False
 mscl,https://github.com/LORD-MicroStrain/MSCL,github,conan-mscl,master,55.0.1,mscl:shared=False # by default
-muparser,https://beltoforion.de/en/muparser/,github,conan-muparser,master,2.3.2,
 netcdf,https://github.com/Unidata/netcdf-c.git,github,conan-netcdf-c,master,4.3.2,
 ogre3d,https://www.ogre3d.org/,github,conan-ogre3d,master,1.12.5,
 opensplice-ce,https://github.com/ADLINK-IST/opensplice,github,conan-opensplice-ce,master,6.9.190925
-tinyxml,http://www.grinninglizard.com/tinyxml,github,conan-tinyxml,master,2.4.2,
 qwt,https://qwt.sourceforge.io/,github,conan-qwt,master,6.1.5,
 coinbrew,http://github.com/coin-or/coinbrew,github,conan-coinbrew,main,2021.01,
 coinmetis,http://glaros.dtc.umn.edu/gkhome/metis/metis/overview,github,conan-coinmetis,main,4.0.3,
 coinhsl,http://www.hsl.rl.ac.uk/ipopt/,github,conan-coinhsl,main,2014.01.17,
 coinglpk,https://www.gnu.org/software/glpk,github,conan-coinglpk,main,4.65
 coinmumps,http://mumps.enseeiht.fr,github,conan-coinmumps,main,4.10.0
-ipopt,https://github.com/coin-or/ipopt,github,conan-ipopt,main,3.13.3
+ipopt,https://github.com/coin-or/ipopt,github,conan-ipopt,main,3.13.4
 casadi,https://web.casadi.org/,github,conan-casadi,master,3.5.5
