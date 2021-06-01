@@ -1,6 +1,7 @@
 library,homepage,repo,reponame,branch,version,opt_example
 clapack,http://www.netlib.org/clapack,github,conan-clapack,master,3.2.1,
 gnuplot-iostream,https://github.com/dstahlke/gnuplot-iostream,github,conan-gnuplot-iostream,main,2020.06.20,
+hdf5,https://portal.hdfgroup.org/display/HDF5/HDF5,github,conan-hdf5,master,1.8.21,
 libboard,https://github.com/c-koi/libboard,github,conan-libboard,master,0.9.4,
 mathgl,http://mathgl.sourceforge.net,github,conan-mathgl,master,2.4.4,mathgl:shared=False
 mscl,https://github.com/LORD-MicroStrain/MSCL,github,conan-mscl,master,55.0.1,mscl:shared=False # by default

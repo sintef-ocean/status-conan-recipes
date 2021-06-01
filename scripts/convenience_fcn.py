@@ -95,14 +95,14 @@ def WriteStatusFile():
     with open('Out.md', 'w') as fil:
         fil.write(TableHeader())
 
+        fil.write("\nTo setup this remote:\n")
+        fil.write("`conan remote add [REMOTE] https://artifactory.smd.sintef.no/artifactory/api/conan/conan-local`\n")
         with open('list.csv', 'rt') as csvfile:
             reader = csv.DictReader(csvfile, delimiter=',')
             for row in reader:
                 aLine = WriteRow(row['library'], row['homepage'], row['repo'],
                                  row['reponame'], True)
                 fil.write(aLine)
-        fil.write("\nTo setup this remote:\n")
-        fil.write("`conan remote add [REMOTE] https://conan.sintef.io/public`\n")
         fil.write("\n----\n")
         fil.write(TransitiveHeader())
 
