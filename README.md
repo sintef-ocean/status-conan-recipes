@@ -1,6 +1,7 @@
 # Status for own Conan recipes
 
 To setup this remote:
+
 `conan remote add [REMOTE] https://artifactory.smd.sintef.no/artifactory/api/conan/conan-local`
 
 Software | Recipe | GCC | Clang | MSVC
