@@ -3,16 +3,20 @@ compiler. Take a look at the yaml files in `.github/workflows` for one of the re
 see how a build matrix is constructed. We currently build all linux artifacts using docker
 images from [conan-io](https://github.com/conan-io/conan-docker-tools) on ubuntu-20.04
 
-| Compiler | Versions       | container/os    | glibc ver. |
-| -------- | -------------- | ------------    | ---------- |
-| Clang    | 8              | conanio/clang8  | 2.29       |
-| Clang    | 9              | conanio/clang9  | 2.30       |
-| Clang    | 10             | conanio/clang10 | 2.27       |
-| GCC      | 6              | conanio/gcc63   | 2.24       |
-| GCC      | 7              | conanio/gcc7    | 2.26       |
-| GCC      | 8              | conanio/gcc8    | 2.27       |
-| GCC      | 9              | conanio/gcc9    | 2.30       |
-| MSVC     | 16: v141, v142 | windows-2019    | -          |
+| Compiler | Versions             | container/os    | glibc ver. |
+|----------|----------------------|-----------------|------------|
+| Clang    | 8                    | conanio/clang8  | 2.29       |
+| Clang    | 9                    | conanio/clang9  | 2.30       |
+| Clang    | 10                   | conanio/clang10 | 2.27       |
+| Clang    | 11                   | conanio/clang11 | 2.27       |
+| GCC      | 6                    | conanio/gcc63   | 2.24       |
+| GCC      | 7                    | conanio/gcc7    | 2.26       |
+| GCC      | 8                    | conanio/gcc8    | 2.27       |
+| GCC      | 9                    | conanio/gcc9    | 2.30       |
+| GCC      | 10                   | conanio/gcc10   | 2.31       |
+| GCC      | 11                   | conanio/gcc11   | 2.31       |
+| MSVC     | 16: v141, v142       | windows-2019    | -          |
+| MSVC     | 17: v141, v142, v143 | windows-2022    | -          |
 
 | OS           | glibc |
 |--------------|-------|
@@ -22,6 +26,7 @@ images from [conan-io](https://github.com/conan-io/conan-docker-tools) on ubuntu
 | Ubuntu 16.04 | 2.23  |
 | Ubuntu 18.04 | 2.27  |
 | Ubuntu 20.04 | 2.31  |
+| Ubuntu 22.04 | 2.34  |
 
 Find glibc version: `ldd --version`
 
