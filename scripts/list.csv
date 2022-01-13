@@ -1,5 +1,7 @@
 library,homepage,repo,reponame,branch,version,opt_example
 clapack,http://www.netlib.org/clapack,github,conan-clapack,master,3.2.1,
+cyclonedds,https://cyclonedds.io/,github,conan-cyclonedds,main,0.8.2
+cyclonedds-cxx,https://cyclonedds.io/,github,conan-cyclonedds-cxx,main,0.8.2
 gnuplot-iostream,https://github.com/dstahlke/gnuplot-iostream,github,conan-gnuplot-iostream,main,2020.06.20,
 hdf5,https://portal.hdfgroup.org/display/HDF5/HDF5,github,conan-hdf5,master,1.8.21,
 libboard,https://github.com/c-koi/libboard,github,conan-libboard,master,0.9.4,
