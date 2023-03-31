@@ -25,12 +25,14 @@ def Repo3rdParty(repo, reponame):
     return '[<img src="https://{0}/favicon.ico" height="28">](https://{0}/{1})'.format(s, reponame)
 
 
-def BadgeWorkFlow(reponame, compiler):
-    return '[![{1} Conan](https://github.com/sintef-ocean/{0}/workflows/{1}%20Conan/badge.svg)](https://github.com/sintef-ocean/{0}/actions?query=workflow%3A"{1}+Conan")'.format(reponame, compiler)
+def BadgeWorkFlow(reponame, platform, compiler):
+    compiler_percent20 = compiler.replace(" ", "%20")
+    compiler_plus = compiler.replace(" ", "+")
+    return f'[![{platform} {compiler}](https://github.com/sintef-ocean/{reponame}/workflows/{platform}%20{compiler_percent20}/badge.svg)](https://github.com/sintef-ocean/{0}/actions?query=workflow%3A"{platform}{compiler_plus}")'
 
 
 def TableHeader():
-    return "# Status for own Conan recipes\n\nSoftware | Recipe | GCC | Clang | MSVC\n---|---|---|---|---\n"
+    return "Software | Recipe | Configurations\n---|---|---\n"
 
 
 def TransitiveHeader():
@@ -39,18 +41,22 @@ def TransitiveHeader():
 
 def WriteRow(libname, homepage, repo, reponame, inTable):
     if not inTable:
-        return "{}\n{}\n{}\n".format(
-            BadgeWorkFlow(reponame, 'GCC'),
-            BadgeWorkFlow(reponame, 'Clang'),
-            BadgeWorkFlow(reponame, 'MSVC'))
+        return "{}\n{}\n{}\n{}\n{}\n".format(
+            BadgeWorkFlow(reponame, 'Linux', 'GCC'),
+            BadgeWorkFlow(reponame, 'Linux', 'Clang'),
+            BadgeWorkFlow(reponame, 'Windows', 'MSVC'),
+            BadgeWorkFlow(reponame, 'Windows', 'MSVC Clang'),
+            BadgeWorkFlow(reponame, 'Macos', 'Apple-Clang')
+            )
     else:
-        return "{}|{}|{}|{}|{}\n".format(
+        return "{}|{}|{}{}{}{}{}\n".format(
             SoftwareLink(libname, homepage),
             RecipeLink(repo, reponame),
-            BadgeWorkFlow(reponame, 'GCC'),
-            BadgeWorkFlow(reponame, 'Clang'),
-            BadgeWorkFlow(reponame, 'MSVC'))
-
+            BadgeWorkFlow(reponame, 'Linux', 'GCC'),
+            BadgeWorkFlow(reponame, 'Linux', 'Clang'),
+            BadgeWorkFlow(reponame, 'Windows', 'MSVC'),
+            BadgeWorkFlow(reponame, 'Windows', 'MSVC Clang'),
+            BadgeWorkFlow(reponame, 'Macos', 'Apple-Clang'))
 
 def WriteTransitiveRow(libname, homepage, repo, reponame):
     return "{}|{}\n".format(
@@ -93,10 +99,11 @@ def WriteLibReadme(libname, homepage, repo, reponame, version, opt_ex):
 
 def WriteStatusFile():
     with open('Out.md', 'w') as fil:
-        fil.write(TableHeader())
 
+        fil.write("# Status for own Conan recipes\n\n")
         fil.write("\nTo setup this remote:\n")
-        fil.write("`conan remote add [REMOTE] https://artifactory.smd.sintef.no/artifactory/api/conan/conan-local`\n")
+        fil.write("`conan remote add [REMOTE] https://artifactory.smd.sintef.no/artifactory/api/conan/conan-local`\n\n")
+        fil.write(TableHeader())
         with open('list.csv', 'rt') as csvfile:
             reader = csv.DictReader(csvfile, delimiter=',')
             for row in reader:
